@@ -1,0 +1,1390 @@
+/* =========================================================
+   XENITH AUTOMOTIVE DIVISION
+   STYLE.CSS
+   ========================================================= */
+
+
+/* =========================================================
+   01 — RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0a0a0a;
+    color: #f2f2f2;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   02 — VARIÁVEIS
+   ========================================================= */
+
+:root {
+
+    --black: #050505;
+    --dark: #0a0a0a;
+    --dark-2: #111111;
+    --dark-3: #171717;
+
+    --white: #f5f5f5;
+    --gray: #999999;
+    --gray-dark: #555555;
+
+    --line: rgba(255, 255, 255, 0.12);
+
+    --accent: #d9d9d9;
+    --accent-bright: #ffffff;
+
+    --max-width: 1400px;
+
+    --transition: 0.3s ease;
+}
+
+
+/* =========================================================
+   03 — ELEMENTOS GERAIS
+   ========================================================= */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+section {
+    position: relative;
+}
+
+.section {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 120px 7%;
+}
+
+.section-header {
+    max-width: 850px;
+    margin-bottom: 65px;
+}
+
+.section-header > p:first-child {
+    color: var(--gray);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.section-header h2 {
+    font-size: clamp(38px, 7vw, 82px);
+    line-height: 0.95;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.section-header > p:last-child {
+    max-width: 650px;
+    color: #999;
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   04 — HEADER
+   ========================================================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 78px;
+
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 1000;
+
+    background: rgba(5, 5, 5, 0.82);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid var(--line);
+}
+
+
+/* LOGO */
+
+.logo,
+.menu-logo,
+.footer-logo {
+
+    font-weight: 900;
+    letter-spacing: 5px;
+
+    color: #fff;
+}
+
+
+/* HEADER LOGO */
+
+.logo {
+    font-size: 20px;
+}
+
+
+/* MENU BUTTON */
+
+.menu-button {
+
+    width: 46px;
+    height: 46px;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    background: rgba(255, 255, 255, 0.04);
+
+    color: #fff;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+.menu-button:hover {
+    background: #fff;
+    color: #000;
+}
+
+
+/* =========================================================
+   05 — MENU LATERAL
+   ========================================================= */
+
+.side-menu {
+
+    position: fixed;
+
+    top: 0;
+    right: -100%;
+
+    width: min(420px, 88%);
+
+    height: 100vh;
+
+    background: #0b0b0b;
+
+    z-index: 999;
+
+    padding: 120px 50px;
+
+    border-left: 1px solid var(--line);
+
+    transition: right 0.45s ease;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    overflow-y: auto;
+}
+
+
+/*
+   O JS poderá adicionar .active depois.
+*/
+
+.side-menu.active {
+    right: 0;
+}
+
+
+.menu-logo {
+    font-size: 25px;
+
+    margin-bottom: 45px;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid var(--line);
+}
+
+
+.side-menu a {
+
+    position: relative;
+
+    display: block;
+
+    padding: 16px 0;
+
+    color: #aaa;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    transition: var(--transition);
+}
+
+
+.side-menu a::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: -20px;
+
+    top: 50%;
+
+    width: 0;
+
+    height: 1px;
+
+    background: #fff;
+
+    transition: var(--transition);
+}
+
+
+.side-menu a:hover {
+    color: #fff;
+    padding-left: 20px;
+}
+
+
+.side-menu a:hover::before {
+    width: 12px;
+}
+
+
+/* =========================================================
+   06 — HERO
+   ========================================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 150px 7% 100px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.95) 0%,
+            rgba(0, 0, 0, 0.72) 45%,
+            rgba(0, 0, 0, 0.35) 100%
+        ),
+
+        radial-gradient(
+            circle at 75% 45%,
+            #333 0%,
+            #111 35%,
+            #050505 75%
+        );
+
+    overflow: hidden;
+}
+
+
+/*
+   Linha decorativa.
+*/
+
+.hero::after {
+
+    content: "XENITH / 001";
+
+    position: absolute;
+
+    right: 7%;
+    bottom: 45px;
+
+    color: rgba(255,255,255,0.25);
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+}
+
+
+.hero-content {
+    max-width: 850px;
+    z-index: 2;
+}
+
+
+.hero-subtitle {
+
+    color: #aaa;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 25px;
+}
+
+
+.hero h1 {
+
+    font-size: clamp(60px, 11vw, 150px);
+
+    line-height: 0.84;
+
+    letter-spacing: -7px;
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    margin-bottom: 40px;
+}
+
+
+.hero-description {
+
+    max-width: 600px;
+
+    color: #aaa;
+
+    font-size: 16px;
+
+    margin-bottom: 40px;
+}
+
+
+.hero-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 52px;
+
+    padding: 0 30px;
+
+    border: 1px solid rgba(255,255,255,0.4);
+
+    background: rgba(255,255,255,0.04);
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    transition: var(--transition);
+}
+
+
+.hero-button:hover {
+
+    background: #fff;
+
+    color: #000;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   07 — UPDATES
+   ========================================================= */
+
+.updates {
+
+    max-width: var(--max-width);
+
+    margin: auto;
+
+    padding: 70px 7%;
+
+    border-top: 1px solid var(--line);
+
+    border-bottom: 1px solid var(--line);
+}
+
+
+.updates h2 {
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 30px;
+}
+
+
+.update-list {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+
+.update {
+
+    min-height: 110px;
+
+    padding: 25px;
+
+    border: 1px solid var(--line);
+
+    background: #0e0e0e;
+
+    transition: var(--transition);
+}
+
+
+.update:hover {
+
+    border-color: rgba(255,255,255,0.4);
+
+    transform: translateY(-4px);
+}
+
+
+.update span {
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #777;
+}
+
+
+.update p {
+
+    margin-top: 15px;
+
+    font-size: 14px;
+
+    color: #ddd;
+}
+
+
+/* =========================================================
+   08 — GARAGE
+   ========================================================= */
+
+.car-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+
+.car-card {
+
+    position: relative;
+
+    min-height: 500px;
+
+    overflow: hidden;
+
+    background: #111;
+
+    border: 1px solid var(--line);
+
+    transition: var(--transition);
+}
+
+
+.car-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(255,255,255,0.35);
+}
+
+
+/*
+   Espaço reservado para fotos.
+*/
+
+.car-image {
+
+    height: 300px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #1c1c1c,
+            #080808
+        );
+
+    position: relative;
+}
+
+
+.car-image::after {
+
+    content: "XENITH";
+
+    position: absolute;
+
+    right: 20px;
+    top: 20px;
+
+    color: rgba(255,255,255,0.08);
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+    letter-spacing: 5px;
+}
+
+
+.car-info {
+
+    padding: 30px;
+}
+
+
+.car-info > span {
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #777;
+}
+
+
+.car-info h3 {
+
+    font-size: 38px;
+
+    line-height: 1;
+
+    margin: 12px 0 18px;
+
+    letter-spacing: -1px;
+}
+
+
+.car-info p {
+
+    color: #888;
+
+    font-size: 14px;
+
+    max-width: 500px;
+
+    margin-bottom: 25px;
+}
+
+
+.car-info a {
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+
+    transition: var(--transition);
+}
+
+
+.car-info a:hover {
+
+    letter-spacing: 4px;
+}
+
+
+/* =========================================================
+   09 — LIMITED / PREMIUM
+   ========================================================= */
+
+.edition-list {
+
+    border-top: 1px solid var(--line);
+}
+
+
+.edition {
+
+    min-height: 130px;
+
+    display: grid;
+
+    grid-template-columns: 100px 1fr auto;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 25px 15px;
+
+    border-bottom: 1px solid var(--line);
+
+    transition: var(--transition);
+}
+
+
+.edition:hover {
+
+    background: #111;
+
+    padding-left: 30px;
+}
+
+
+.edition > span {
+
+    color: #555;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+}
+
+
+.edition h3 {
+
+    font-size: 25px;
+
+    letter-spacing: 1px;
+}
+
+
+.edition p {
+
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+.edition a {
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   10 — COMPETITION
+   ========================================================= */
+
+.competition {
+
+    background:
+        linear-gradient(
+            180deg,
+            #080808,
+            #050505
+        );
+}
+
+
+.competition-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+
+.competition-card {
+
+    min-height: 300px;
+
+    padding: 35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    border: 1px solid var(--line);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #161616,
+            #080808
+        );
+
+    transition: var(--transition);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.competition-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -100px;
+    right: -100px;
+
+    width: 250px;
+    height: 250px;
+
+    border-radius: 50%;
+
+    border: 1px solid
+        rgba(255,255,255,0.05);
+}
+
+
+.competition-card:hover {
+
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(255,255,255,0.4);
+}
+
+
+.competition-card > span {
+
+    position: absolute;
+
+    top: 25px;
+    left: 30px;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #666;
+}
+
+
+.competition-card h3 {
+
+    font-size: clamp(35px, 5vw, 60px);
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+}
+
+
+.competition-card p {
+
+    color: #777;
+
+    margin: 10px 0 25px;
+
+    font-size: 12px;
+}
+
+
+.competition-card a {
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   11 — DOWNLOADS
+   ========================================================= */
+
+.download-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+
+.download-grid article {
+
+    padding: 35px;
+
+    min-height: 250px;
+
+    border: 1px solid var(--line);
+
+    background: #0e0e0e;
+
+    display: flex;
+
+    flex-direction: column;
+
+    transition: var(--transition);
+}
+
+
+.download-grid article:hover {
+
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(255,255,255,0.35);
+}
+
+
+.download-grid h3 {
+
+    font-size: 20px;
+
+    margin-bottom: 15px;
+}
+
+
+.download-grid p {
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-bottom: auto;
+}
+
+
+.download-grid a {
+
+    margin-top: 30px;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   12 — ARCHIVE
+   ========================================================= */
+
+.archive {
+
+    background: #0d0d0d;
+
+    border-top: 1px solid var(--line);
+
+    border-bottom: 1px solid var(--line);
+}
+
+
+.lore {
+
+    max-width: 900px;
+
+    padding: 60px;
+
+    border: 1px solid var(--line);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #131313,
+            #090909
+        );
+
+    position: relative;
+}
+
+
+.lore::before {
+
+    content: "CLASSIFIED";
+
+    position: absolute;
+
+    top: 30px;
+    right: 30px;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: #444;
+}
+
+
+.lore-label {
+
+    color: #666;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 35px;
+}
+
+
+.lore h3 {
+
+    font-size: 50px;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 30px;
+}
+
+
+.lore p {
+
+    color: #999;
+
+    font-size: 16px;
+
+    margin-bottom: 20px;
+
+    max-width: 750px;
+}
+
+
+.lore-final {
+
+    color: #fff !important;
+
+    font-size: 12px !important;
+
+    font-weight: bold;
+
+    letter-spacing: 5px;
+
+    padding-top: 25px;
+}
+
+
+/* =========================================================
+   13 — ABOUT
+   ========================================================= */
+
+.about-content {
+
+    max-width: 900px;
+}
+
+
+.about-content p {
+
+    color: #999;
+
+    font-size: 19px;
+
+    margin-bottom: 25px;
+}
+
+
+.about-content .highlight {
+
+    color: #fff;
+
+    font-size: clamp(25px, 4vw, 45px);
+
+    line-height: 1.1;
+
+    font-weight: bold;
+
+    letter-spacing: -1px;
+
+    margin-top: 45px;
+}
+
+
+/* =========================================================
+   14 — FOOTER
+   ========================================================= */
+
+footer {
+
+    padding: 80px 7% 40px;
+
+    background: #050505;
+
+    border-top: 1px solid var(--line);
+
+    text-align: center;
+}
+
+
+.footer-logo {
+
+    font-size: 28px;
+
+    margin-bottom: 10px;
+}
+
+
+footer > p {
+
+    color: #666;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+}
+
+
+.footer-links {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 30px;
+
+    margin: 45px 0;
+}
+
+
+.footer-links a {
+
+    color: #777;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    transition: var(--transition);
+}
+
+
+.footer-links a:hover {
+
+    color: #fff;
+}
+
+
+footer .copyright {
+
+    padding-top: 30px;
+
+    border-top: 1px solid var(--line);
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   15 — RESPONSIVIDADE
+   ========================================================= */
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+    .update-list,
+    .download-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .car-grid,
+    .competition-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .hero h1 {
+
+        letter-spacing: -4px;
+    }
+
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    header {
+
+        height: 68px;
+
+        padding: 0 5%;
+    }
+
+
+    .logo {
+
+        font-size: 16px;
+
+        letter-spacing: 4px;
+    }
+
+
+    .menu-button {
+
+        width: 42px;
+
+        height: 42px;
+    }
+
+
+    .side-menu {
+
+        padding: 100px 35px 50px;
+
+        width: 90%;
+    }
+
+
+    .hero {
+
+        min-height: 100svh;
+
+        padding:
+            130px 7%
+            80px;
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            clamp(55px, 17vw, 100px);
+
+        letter-spacing: -5px;
+    }
+
+
+    .hero-description {
+
+        font-size: 14px;
+    }
+
+
+    .section {
+
+        padding:
+            85px 7%;
+    }
+
+
+    .section-header {
+
+        margin-bottom: 45px;
+    }
+
+
+    .section-header h2 {
+
+        letter-spacing: -2px;
+
+        font-size:
+            clamp(38px, 12vw, 65px);
+    }
+
+
+    .update-list {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .car-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .car-card {
+
+        min-height: 450px;
+    }
+
+
+    .car-image {
+
+        height: 240px;
+    }
+
+
+    .car-info h3 {
+
+        font-size: 32px;
+    }
+
+
+    .edition {
+
+        grid-template-columns:
+            45px 1fr;
+
+        gap: 15px;
+
+        padding: 25px 5px;
+    }
+
+
+    .edition a {
+
+        grid-column: 2;
+    }
+
+
+    .competition-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .competition-card {
+
+        min-height: 260px;
+    }
+
+
+    .download-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .lore {
+
+        padding: 35px 25px;
+    }
+
+
+    .lore h3 {
+
+        font-size: 38px;
+    }
+
+
+    .lore p {
+
+        font-size: 14px;
+    }
+
+
+    .about-content p {
+
+        font-size: 16px;
+    }
+
+
+    .footer-links {
+
+        gap: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   16 — ACESSIBILIDADE
+   ========================================================= */
+
+:focus-visible {
+
+    outline: 2px solid #fff;
+
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   17 — SELEÇÃO DE TEXTO
+   ========================================================= */
+
+::selection {
+
+    background: #fff;
+
+    color: #000;
+}
+
+
+/* =========================================================
+   18 — SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+
+    width: 8px;
+}
+
+
+::-webkit-scrollbar-track {
+
+    background: #050505;
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background: #333;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: #555;
+  }
