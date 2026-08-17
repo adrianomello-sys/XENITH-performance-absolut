@@ -1,128 +1,262 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>XENITH | Performance Absolut</title>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <meta
         name="description"
-        content="XENITH Performance Absolut — catálogo de carros, plotagens e builds."
+        content="XENITH Performance — garagem, projetos e novidades."
     >
 
+    <title>XENITH PERFORMANCE</title>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-    <!-- =========================
+
+    <!-- ==================================================
          HEADER
-    ========================== -->
+    =================================================== -->
 
     <header class="site-header">
 
-        <div class="header-logo">
-            <span class="logo-x">X</span>
-            <span class="logo-text">XENITH</span>
-        </div>
+        <a href="#inicio" class="logo">
 
-        <nav class="main-nav">
-            <a href="#inicio">Início</a>
-            <a href="#carros">Carros</a>
-            <a href="#plots">Plotagens</a>
-            <a href="#sobre">Sobre</a>
+            <div class="logo-symbol">
+                X
+            </div>
+
+            <div class="logo-name">
+
+                <strong>
+                    XENITH
+                </strong>
+
+                <span>
+                    PERFORMANCE
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <nav class="navigation">
+
+            <a href="#inicio">
+                INÍCIO
+            </a>
+
+            <a href="#garage">
+                GARAGE
+            </a>
+
+            <a href="#classes">
+                CLASSES
+            </a>
+
+            <a href="#news">
+                NEWS
+            </a>
+
+            <a href="#about">
+                SOBRE
+            </a>
+
         </nav>
 
-        <button class="menu-button" id="menuButton" aria-label="Abrir menu">
+
+        <button
+            class="menu-button"
+            id="menuButton"
+            aria-label="Abrir menu"
+        >
             ☰
         </button>
 
     </header>
 
 
-    <!-- =========================
+
+    <!-- ==================================================
          HERO
-    ========================== -->
+    =================================================== -->
 
     <main>
 
-        <section class="hero" id="inicio">
+        <section
+            class="hero"
+            id="inicio"
+        >
 
             <div class="hero-content">
 
-                <p class="hero-small">
-                    XENITH PERFORMANCE ABSOLUT
+                <p class="hero-label">
+                    XENITH PERFORMANCE // EST. 2026
                 </p>
+
 
                 <h1>
-                    NÃO É SÓ UM CARRO.
-                    <span>É XENITH.</span>
+
+                    BUILT TO
+
+                    <span>
+                        BE REMEMBERED.
+                    </span>
+
                 </h1>
 
+
                 <p class="hero-description">
-                    Uma coleção de builds criadas para dominar as ruas,
-                    pistas e qualquer lugar onde a performance importa.
+
+                    Bem-vindo à garagem XENITH.
+                    Projetos únicos, identidade própria
+                    e máquinas construídas para deixar
+                    sua marca.
+
                 </p>
+
 
                 <div class="hero-buttons">
 
-                    <a href="#carros" class="btn btn-primary">
-                        VER CARROS
+                    <a
+                        href="#garage"
+                        class="button button-primary"
+                    >
+                        EXPLORE A GARAGE
                     </a>
 
-                    <a href="#sobre" class="btn btn-secondary">
-                        CONHECER A XENITH
+
+                    <a
+                        href="#classes"
+                        class="button button-secondary"
+                    >
+                        VER CLASSES
                     </a>
 
                 </div>
 
             </div>
 
-            <div class="hero-decoration">
-                <span>X</span>
+
+            <div class="hero-mark">
+
+                <span>
+                    X
+                </span>
+
             </div>
 
         </section>
 
 
-        <!-- =========================
-             CARROS
-        ========================== -->
 
-        <section class="cars-section" id="carros">
+        <!-- ==================================================
+             GARAGE
+        =================================================== -->
 
-            <div class="section-heading">
+        <section
+            class="garage-section"
+            id="garage"
+        >
 
-                <p class="section-tag">
-                    GARAGEM XENITH
-                </p>
+            <div class="section-header">
 
-                <h2>
-                    BUILDS
-                    <span>EXCLUSIVAS</span>
-                </h2>
+                <div>
 
-                <p>
-                    Conheça os carros da coleção XENITH.
+                    <p class="section-label">
+                        XENITH GARAGE
+                    </p>
+
+                    <h2>
+                        THE
+                        <span>COLLECTION</span>
+                    </h2>
+
+                </div>
+
+
+                <p class="section-description">
+
+                    Conheça os projetos que fazem
+                    parte da história da XENITH.
+
                 </p>
 
             </div>
 
 
+
+            <!-- ==============================
+                 FILTROS
+            =============================== -->
+
+            <div class="garage-filters">
+
+                <button
+                    class="filter active"
+                    data-filter="all"
+                >
+                    TODOS
+                </button>
+
+                <button
+                    class="filter"
+                    data-filter="limited"
+                >
+                    LIMITED
+                </button>
+
+                <button
+                    class="filter"
+                    data-filter="premium"
+                >
+                    PREMIUM
+                </button>
+
+                <button
+                    class="filter"
+                    data-filter="competition"
+                >
+                    COMPETITION
+                </button>
+
+            </div>
+
+
+
+            <!-- ==============================
+                 CARDS
+            =============================== -->
+
             <div class="cars-grid">
 
 
-                <!-- =================================
-                     CARRO 01 — SPIRIT
-                ================================== -->
 
-                <article class="car-card">
+                <!-- ==================================
+                     SPIRIT
+                =================================== -->
+
+                <article
+                    class="car-card"
+                    data-class="limited"
+                >
 
                     <div class="car-image">
 
                         <img
-                            src="assets/spirit.jpg"
+                            src="images/spirit.jpg"
                             alt="XENITH Spirit"
                             loading="lazy"
                         >
@@ -131,60 +265,58 @@
                             01
                         </span>
 
+                        <span class="car-class">
+                            LIMITED
+                        </span>
+
                     </div>
 
-                    <div class="car-info">
 
-                        <p class="car-category">
-                            XENITH COLLECTION
+                    <div class="car-content">
+
+                        <p class="car-label">
+                            XENITH LIMITED
                         </p>
 
                         <h3>
                             SPIRIT
                         </h3>
 
-                        <p class="car-description">
-                            A primeira criação da XENITH.
-                            Uma build agressiva com identidade própria.
+                        <p>
+                            O primeiro grande projeto
+                            da XENITH.
                         </p>
 
-                        <div class="car-specs">
 
-                            <div>
-                                <span>TIPO</span>
-                                <strong>PERFORMANCE</strong>
-                            </div>
-
-                            <div>
-                                <span>ESTILO</span>
-                                <strong>STREET</strong>
-                            </div>
-
-                        </div>
-
-                        <button
-                            class="details-button"
+                        <a
+                            href="#"
+                            class="car-link"
                             data-car="spirit"
                         >
-                            VER DETALHES
-                        </button>
+                            VIEW PROJECT
+                            <span>→</span>
+                        </a>
 
                     </div>
 
                 </article>
 
 
-                <!-- =================================
-                     CARRO 02
-                ================================== -->
 
-                <article class="car-card">
+                <!-- ==================================
+                     SECOND
+                =================================== -->
+
+                <article
+                    class="car-card"
+                    data-class="limited"
+                >
 
                     <div class="car-image">
 
                         <img
-                            src="assets/car-02.jpg"
-                            alt="Segundo carro XENITH"
+                            src="images/car-02.jpg"
+                            alt="XENITH Second"
                             loading="lazy"
                         >
 
@@ -192,58 +324,57 @@
                             02
                         </span>
 
+                        <span class="car-class">
+                            LIMITED
+                        </span>
+
                     </div>
 
-                    <div class="car-info">
 
-                        <p class="car-category">
-                            XENITH COLLECTION
+                    <div class="car-content">
+
+                        <p class="car-label">
+                            XENITH LIMITED
                         </p>
 
                         <h3>
                             SECOND
                         </h3>
 
-                        <p class="car-description">
-                            Segunda build da coleção XENITH.
+                        <p>
+                            Segundo projeto da coleção
+                            XENITH.
                         </p>
 
-                        <div class="car-specs">
 
-                            <div>
-                                <span>TIPO</span>
-                                <strong>PERFORMANCE</strong>
-                            </div>
-
-                            <div>
-                                <span>ESTILO</span>
-                                <strong>DRIFT</strong>
-                            </div>
-
-                        </div>
-
-                        <button
-                            class="details-button"
+                        <a
+                            href="#"
+                            class="car-link"
                             data-car="second"
                         >
-                            VER DETALHES
-                        </button>
+                            VIEW PROJECT
+                            <span>→</span>
+                        </a>
 
                     </div>
 
                 </article>
 
 
-                <!-- =================================
-                     CARRO 03 — DRIFT SCHOOL
-                ================================== -->
 
-                <article class="car-card">
+                <!-- ==================================
+                     DRIFT SCHOOL
+                =================================== -->
+
+                <article
+                    class="car-card"
+                    data-class="competition"
+                >
 
                     <div class="car-image">
 
                         <img
-                            src="assets/drift-school.jpg"
+                            src="images/drift-school.jpg"
                             alt="XENITH Drift School"
                             loading="lazy"
                         >
@@ -252,59 +383,57 @@
                             03
                         </span>
 
+                        <span class="car-class">
+                            COMPETITION
+                        </span>
+
                     </div>
 
-                    <div class="car-info">
 
-                        <p class="car-category">
-                            XENITH DRIFT SCHOOL
+                    <div class="car-content">
+
+                        <p class="car-label">
+                            XENITH COMPETITION
                         </p>
 
                         <h3>
                             DRIFT SCHOOL
                         </h3>
 
-                        <p class="car-description">
-                            Uma máquina feita para aprender,
-                            dominar e aperfeiçoar o drift.
+                        <p>
+                            Projeto criado para a
+                            divisão Drift School.
                         </p>
 
-                        <div class="car-specs">
 
-                            <div>
-                                <span>TIPO</span>
-                                <strong>DRIFT</strong>
-                            </div>
-
-                            <div>
-                                <span>ESCOLA</span>
-                                <strong>#15</strong>
-                            </div>
-
-                        </div>
-
-                        <button
-                            class="details-button"
+                        <a
+                            href="#"
+                            class="car-link"
                             data-car="drift-school"
                         >
-                            VER DETALHES
-                        </button>
+                            VIEW PROJECT
+                            <span>→</span>
+                        </a>
 
                     </div>
 
                 </article>
 
 
-                <!-- =================================
-                     CARRO 04 — DIAMOND
-                ================================== -->
 
-                <article class="car-card">
+                <!-- ==================================
+                     DIAMOND
+                =================================== -->
+
+                <article
+                    class="car-card"
+                    data-class="premium"
+                >
 
                     <div class="car-image">
 
                         <img
-                            src="assets/diamond.jpg"
+                            src="images/diamond.jpg"
                             alt="XENITH Diamond"
                             loading="lazy"
                         >
@@ -313,59 +442,57 @@
                             04
                         </span>
 
+                        <span class="car-class">
+                            PREMIUM
+                        </span>
+
                     </div>
 
-                    <div class="car-info">
 
-                        <p class="car-category">
-                            PREMIUM EDITION
+                    <div class="car-content">
+
+                        <p class="car-label">
+                            XENITH PREMIUM
                         </p>
 
                         <h3>
                             DIAMOND
                         </h3>
 
-                        <p class="car-description">
-                            Uma build premium da XENITH,
-                            criada para se destacar em qualquer garagem.
+                        <p>
+                            Uma das construções premium
+                            da coleção.
                         </p>
 
-                        <div class="car-specs">
 
-                            <div>
-                                <span>EDIÇÃO</span>
-                                <strong>PREMIUM</strong>
-                            </div>
-
-                            <div>
-                                <span>ESTILO</span>
-                                <strong>STREET</strong>
-                            </div>
-
-                        </div>
-
-                        <button
-                            class="details-button"
+                        <a
+                            href="#"
+                            class="car-link"
                             data-car="diamond"
                         >
-                            VER DETALHES
-                        </button>
+                            VIEW PROJECT
+                            <span>→</span>
+                        </a>
 
                     </div>
 
                 </article>
 
 
-                <!-- =================================
-                     CARRO 05 — TURQUOISE
-                ================================== -->
 
-                <article class="car-card">
+                <!-- ==================================
+                     TURQUOISE
+                =================================== -->
+
+                <article
+                    class="car-card"
+                    data-class="limited"
+                >
 
                     <div class="car-image">
 
                         <img
-                            src="assets/turquoise.jpg"
+                            src="images/turquoise.jpg"
                             alt="XENITH Turquoise"
                             loading="lazy"
                         >
@@ -374,59 +501,57 @@
                             05
                         </span>
 
+                        <span class="car-class">
+                            LIMITED
+                        </span>
+
                     </div>
 
-                    <div class="car-info">
 
-                        <p class="car-category">
-                            XENITH COLLECTION
+                    <div class="car-content">
+
+                        <p class="car-label">
+                            XENITH LIMITED
                         </p>
 
                         <h3>
                             TURQUOISE
                         </h3>
 
-                        <p class="car-description">
-                            Uma presença marcante em azul turquesa
-                            com uma construção totalmente agressiva.
+                        <p>
+                            Uma build marcada pela
+                            identidade turquesa.
                         </p>
 
-                        <div class="car-specs">
 
-                            <div>
-                                <span>COR</span>
-                                <strong>TURQUOISE</strong>
-                            </div>
-
-                            <div>
-                                <span>ESTILO</span>
-                                <strong>STREET</strong>
-                            </div>
-
-                        </div>
-
-                        <button
-                            class="details-button"
+                        <a
+                            href="#"
+                            class="car-link"
                             data-car="turquoise"
                         >
-                            VER DETALHES
-                        </button>
+                            VIEW PROJECT
+                            <span>→</span>
+                        </a>
 
                     </div>
 
                 </article>
 
 
-                <!-- =================================
-                     CARRO 06 — GOLD
-                ================================== -->
 
-                <article class="car-card">
+                <!-- ==================================
+                     GOLD
+                =================================== -->
+
+                <article
+                    class="car-card"
+                    data-class="premium"
+                >
 
                     <div class="car-image">
 
                         <img
-                            src="assets/gold.jpg"
+                            src="images/gold.jpg"
                             alt="XENITH Gold"
                             loading="lazy"
                         >
@@ -435,59 +560,57 @@
                             06
                         </span>
 
+                        <span class="car-class">
+                            PREMIUM
+                        </span>
+
                     </div>
 
-                    <div class="car-info">
 
-                        <p class="car-category">
-                            PREMIUM EDITION
+                    <div class="car-content">
+
+                        <p class="car-label">
+                            XENITH PREMIUM
                         </p>
 
                         <h3>
                             GOLD
                         </h3>
 
-                        <p class="car-description">
-                            Uma combinação de preto e dourado
-                            criada para uma presença impossível de ignorar.
+                        <p>
+                            Uma edição premium com
+                            identidade própria.
                         </p>
 
-                        <div class="car-specs">
 
-                            <div>
-                                <span>EDIÇÃO</span>
-                                <strong>PREMIUM</strong>
-                            </div>
-
-                            <div>
-                                <span>ESTILO</span>
-                                <strong>STREET</strong>
-                            </div>
-
-                        </div>
-
-                        <button
-                            class="details-button"
+                        <a
+                            href="#"
+                            class="car-link"
                             data-car="gold"
                         >
-                            VER DETALHES
-                        </button>
+                            VIEW PROJECT
+                            <span>→</span>
+                        </a>
 
                     </div>
 
                 </article>
 
 
-                <!-- =================================
-                     CARRO 07 — BLACK OPAL
-                ================================== -->
 
-                <article class="car-card">
+                <!-- ==================================
+                     BLACK OPAL
+                =================================== -->
+
+                <article
+                    class="car-card"
+                    data-class="limited"
+                >
 
                     <div class="car-image">
 
                         <img
-                            src="assets/black-opal.jpg"
+                            src="images/black-opal.jpg"
                             alt="XENITH Black Opal"
                             loading="lazy"
                         >
@@ -496,59 +619,57 @@
                             07
                         </span>
 
+                        <span class="car-class">
+                            LIMITED
+                        </span>
+
                     </div>
 
-                    <div class="car-info">
 
-                        <p class="car-category">
-                            XENITH COLLECTION
+                    <div class="car-content">
+
+                        <p class="car-label">
+                            XENITH LIMITED
                         </p>
 
                         <h3>
                             BLACK OPAL
                         </h3>
 
-                        <p class="car-description">
-                            Uma build sombria com detalhes
-                            coloridos e uma identidade única.
+                        <p>
+                            Uma construção sombria
+                            e exclusiva.
                         </p>
 
-                        <div class="car-specs">
 
-                            <div>
-                                <span>BASE</span>
-                                <strong>BLACK</strong>
-                            </div>
-
-                            <div>
-                                <span>ESTILO</span>
-                                <strong>STREET</strong>
-                            </div>
-
-                        </div>
-
-                        <button
-                            class="details-button"
+                        <a
+                            href="#"
+                            class="car-link"
                             data-car="black-opal"
                         >
-                            VER DETALHES
-                        </button>
+                            VIEW PROJECT
+                            <span>→</span>
+                        </a>
 
                     </div>
 
                 </article>
 
 
-                <!-- =================================
-                     CARRO 08 — VANGUARD
-                ================================== -->
 
-                <article class="car-card">
+                <!-- ==================================
+                     VANGUARD
+                =================================== -->
+
+                <article
+                    class="car-card"
+                    data-class="limited"
+                >
 
                     <div class="car-image">
 
                         <img
-                            src="assets/vanguard.jpg"
+                            src="images/vanguard.jpg"
                             alt="XENITH Vanguard"
                             loading="lazy"
                         >
@@ -557,59 +678,57 @@
                             08
                         </span>
 
+                        <span class="car-class">
+                            LIMITED
+                        </span>
+
                     </div>
 
-                    <div class="car-info">
 
-                        <p class="car-category">
-                            XENITH COLLECTION
+                    <div class="car-content">
+
+                        <p class="car-label">
+                            XENITH LIMITED
                         </p>
 
                         <h3>
                             VANGUARD
                         </h3>
 
-                        <p class="car-description">
-                            Uma construção clássica reinterpretada
-                            pela identidade XENITH.
+                        <p>
+                            Um protótipo com uma
+                            identidade clássica.
                         </p>
 
-                        <div class="car-specs">
 
-                            <div>
-                                <span>ESTILO</span>
-                                <strong>CLASSIC</strong>
-                            </div>
-
-                            <div>
-                                <span>PERFIL</span>
-                                <strong>AGGRESSIVE</strong>
-                            </div>
-
-                        </div>
-
-                        <button
-                            class="details-button"
+                        <a
+                            href="#"
+                            class="car-link"
                             data-car="vanguard"
                         >
-                            VER DETALHES
-                        </button>
+                            VIEW PROJECT
+                            <span>→</span>
+                        </a>
 
                     </div>
 
                 </article>
 
 
-                <!-- =================================
-                     CARRO 09 — VALKYRIE
-                ================================== -->
 
-                <article class="car-card">
+                <!-- ==================================
+                     VALKYRIE
+                =================================== -->
+
+                <article
+                    class="car-card"
+                    data-class="competition"
+                >
 
                     <div class="car-image">
 
                         <img
-                            src="assets/valkyrie.jpg"
+                            src="images/valkyrie.jpg"
                             alt="XENITH Valkyrie"
                             loading="lazy"
                         >
@@ -618,43 +737,37 @@
                             09
                         </span>
 
+                        <span class="car-class">
+                            COMPETITION
+                        </span>
+
                     </div>
 
-                    <div class="car-info">
 
-                        <p class="car-category">
-                            XENITH COLLECTION
+                    <div class="car-content">
+
+                        <p class="car-label">
+                            XENITH COMPETITION
                         </p>
 
                         <h3>
                             VALKYRIE
                         </h3>
 
-                        <p class="car-description">
-                            Uma build inspirada no espírito das
-                            máquinas de competição japonesas.
+                        <p>
+                            Uma máquina criada para
+                            representar a competição XENITH.
                         </p>
 
-                        <div class="car-specs">
 
-                            <div>
-                                <span>ESTILO</span>
-                                <strong>RACING</strong>
-                            </div>
-
-                            <div>
-                                <span>PERFIL</span>
-                                <strong>AGGRESSIVE</strong>
-                            </div>
-
-                        </div>
-
-                        <button
-                            class="details-button"
+                        <a
+                            href="#"
+                            class="car-link"
                             data-car="valkyrie"
                         >
-                            VER DETALHES
-                        </button>
+                            VIEW PROJECT
+                            <span>→</span>
+                        </a>
 
                     </div>
 
@@ -666,57 +779,61 @@
         </section>
 
 
-        <!-- =========================
-             PLOTAGENS
-        ========================== -->
 
-        <section class="plots-section" id="plots">
+        <!-- ==================================================
+             CLASSES
+        =================================================== -->
 
-            <div class="section-heading">
+        <section
+            class="classes-section"
+            id="classes"
+        >
 
-                <p class="section-tag">
-                    XENITH GARAGE
-                </p>
+            <div class="section-header">
 
-                <h2>
-                    PLOTAGENS
-                    <span>EXCLUSIVAS</span>
-                </h2>
+                <div>
 
-                <p>
-                    Copie os códigos das builds diretamente pelo site.
-                </p>
+                    <p class="section-label">
+                        XENITH SYSTEM
+                    </p>
+
+                    <h2>
+                        OUR
+                        <span>CLASSES</span>
+                    </h2>
+
+                </div>
 
             </div>
 
 
-            <div class="plots-grid">
+
+            <div class="classes-grid">
 
 
-                <!-- =================================
-                     PLOTAGEM — SPIRIT
-                ================================== -->
+                <article class="class-card">
 
-                <article class="plot-card">
+                    <span class="class-number">
+                        01
+                    </span>
 
-                    <div class="plot-icon">
-                        X
-                    </div>
+                    <h3>
+                        LIMITED
+                    </h3>
 
-                    <div>
+                    <p>
+                        Projetos especiais produzidos
+                        em quantidade limitada dentro
+                        da coleção XENITH.
+                    </p>
 
-                        <span class="plot-type">
-                            CORPO
-                        </span>
+                    <span class="class-arrow">
+                        →
+                    </span>
 
-                        <h3>
-                            SPIRIT
-                        </h3>
+                </article>
 
-                    </div>
 
-                    <button
-                        class="copy-button"
-                        data-plot="spirit-body"
-                    >
-               
+                <article class="class-card">
+
+                 
