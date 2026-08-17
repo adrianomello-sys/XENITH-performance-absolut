@@ -1,579 +1,421 @@
 /* =========================================================
-   XENITH AUTOMOTIVE DIVISION
+   XENITH PERFORMANCE
    SCRIPT.JS
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
 
-    /* =====================================================
-       01 — MENU LATERAL
-       ===================================================== */
+/* =========================================================
+   CARROS
+   ========================================================= */
 
-    const menuButton = document.querySelector(".menu-button");
-    const sideMenu = document.querySelector(".side-menu");
+const cars = [
 
-    if (menuButton && sideMenu) {
+    {
+        name: "SPIRIT",
+        class: "LIMITED",
+        image: "images/spirit.jpg",
+        story: "O Spirit é um dos projetos que ajudaram a construir a identidade da XENITH. Uma máquina criada com foco em presença, estilo e personalidade.",
+        video: "#"
+    },
 
-        menuButton.addEventListener("click", () => {
-            sideMenu.classList.toggle("active");
+    {
+        name: "S13",
+        class: "COMPETITION",
+        image: "images/s13.jpg",
+        story: "O S13 faz parte da história da XENITH e representa uma das primeiras construções competitivas da garagem.",
+        video: "#"
+    },
 
-            const isOpen = sideMenu.classList.contains("active");
+    {
+        name: "S15",
+        class: "COMPETITION",
+        image: "images/s15.jpg",
+        story: "O S15 nasceu para levar a proposta competitiva da XENITH ainda mais longe, combinando visual agressivo e identidade própria.",
+        video: "#"
+    },
 
-            menuButton.setAttribute(
-                "aria-expanded",
-                isOpen
-            );
-        });
+    {
+        name: "DIAMOND",
+        class: "PREMIUM",
+        image: "images/diamond.jpg",
+        story: "O Diamond representa a linha Premium da XENITH, trazendo uma construção mais exclusiva e refinada.",
+        video: "#"
+    },
 
+    {
+        name: "TURQUOISE",
+        class: "LIMITED",
+        image: "images/turquoise.jpg",
+        story: "O Turquoise é um projeto marcado por sua identidade visual e pela proposta diferenciada dentro da coleção XENITH.",
+        video: "#"
+    },
 
-        // Fecha ao clicar em qualquer link do menu
+    {
+        name: "GOLD",
+        class: "PREMIUM",
+        image: "images/gold.jpg",
+        story: "O Gold faz parte da linha Premium e foi pensado para representar uma construção de destaque dentro da garagem.",
+        video: "#"
+    },
 
-        const menuLinks =
-            sideMenu.querySelectorAll("a");
+    {
+        name: "BLACK OPAL",
+        class: "LIMITED",
+        image: "images/black-opal.jpg",
+        story: "O Black Opal aposta em uma identidade mais sombria e exclusiva, dando à coleção XENITH uma presença diferente.",
+        video: "#"
+    },
 
-        menuLinks.forEach(link => {
+    {
+        name: "VANGUARD",
+        class: "LIMITED",
+        image: "images/vanguard.jpg",
+        story: "O Vanguard nasceu como um projeto de personalidade clássica, misturando uma plataforma marcante com a identidade XENITH.",
+        video: "#"
+    },
 
-            link.addEventListener("click", () => {
-
-                sideMenu.classList.remove("active");
-
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-            });
-
-        });
-
-
-        // Fecha clicando fora do menu
-
-        document.addEventListener("click", event => {
-
-            const clickedInsideMenu =
-                sideMenu.contains(event.target);
-
-            const clickedButton =
-                menuButton.contains(event.target);
-
-            if (
-                !clickedInsideMenu &&
-                !clickedButton &&
-                sideMenu.classList.contains("active")
-            ) {
-
-                sideMenu.classList.remove("active");
-
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-            }
-
-        });
-
-
-        // Fecha com ESC
-
-        document.addEventListener("keydown", event => {
-
-            if (
-                event.key === "Escape" &&
-                sideMenu.classList.contains("active")
-            ) {
-
-                sideMenu.classList.remove("active");
-
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-            }
-
-        });
-
+    {
+        name: "VALKYRIE",
+        class: "COMPETITION",
+        image: "images/valkyrie.jpg",
+        story: "A Valkyrie é uma das máquinas mais recentes da XENITH Competition. Criada para representar a garagem nas pistas, ela combina presença agressiva, patrocínios e uma identidade própria.",
+        video: "#"
     }
 
-
-    /* =====================================================
-       02 — NAVEGAÇÃO SUAVE
-       ===================================================== */
-
-    const navigationLinks =
-        document.querySelectorAll('a[href^="#"]');
+];
 
 
-    navigationLinks.forEach(link => {
+/* =========================================================
+   ELEMENTOS
+   ========================================================= */
 
-        link.addEventListener("click", event => {
+const carsGrid = document.getElementById("carsGrid");
 
-            const targetId =
-                link.getAttribute("href");
+const filters = document.querySelectorAll(".filter");
 
-            if (
-                !targetId ||
-                targetId === "#"
-            ) {
-                return;
-            }
+const modal = document.getElementById("carModal");
 
-            const target =
-                document.querySelector(targetId);
+const modalBackdrop =
+    document.getElementById("modalBackdrop");
 
-            if (!target) {
-                return;
-            }
+const modalClose =
+    document.getElementById("modalClose");
+
+const modalImage =
+    document.getElementById("modalImage");
+
+const modalTitle =
+    document.getElementById("modalTitle");
+
+const modalClass =
+    document.getElementById("modalClass");
+
+const modalStory =
+    document.getElementById("modalStory");
+
+const modalVideo =
+    document.getElementById("modalVideo");
+
+
+/* =========================================================
+   CRIAR CARDS
+   ========================================================= */
+
+function createCars(filter = "all") {
+
+    carsGrid.innerHTML = "";
+
+    const filteredCars = cars.filter(car => {
+
+        if (filter === "all") {
+            return true;
+        }
+
+        return car.class.toLowerCase() === filter;
+
+    });
+
+
+    filteredCars.forEach((car, index) => {
+
+        const card = document.createElement("article");
+
+        card.className = "car-card";
+
+        card.dataset.class = car.class.toLowerCase();
+
+        card.style.animationDelay =
+            `${index * 0.05}s`;
+
+
+        card.innerHTML = `
+
+            <div class="car-image">
+
+                <img
+                    src="${car.image}"
+                    alt="XENITH ${car.name}"
+                    loading="lazy"
+                >
+
+                <span class="car-number">
+                    ${String(index + 1).padStart(2, "0")}
+                </span>
+
+                <span class="car-class">
+                    ${car.class}
+                </span>
+
+            </div>
+
+
+            <div class="car-content">
+
+                <p class="car-label">
+                    XENITH ${car.class}
+                </p>
+
+                <h3>
+                    ${car.name}
+                </h3>
+
+                <p>
+                    Projeto XENITH desenvolvido
+                    dentro da classe ${car.class}.
+                </p>
+
+                <a
+                    href="#"
+                    class="car-link"
+                >
+                    VIEW PROJECT
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        `;
+
+
+        /* Abrir detalhes */
+
+        card.addEventListener("click", function(event) {
 
             event.preventDefault();
 
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
+            openCar(car);
 
         });
 
+
+        carsGrid.appendChild(card);
+
     });
 
-
-    /* =====================================================
-       03 — HEADER DINÂMICO
-       ===================================================== */
-
-    const header =
-        document.querySelector("header");
+}
 
 
-    if (header) {
+/* =========================================================
+   ABRIR CARRO
+   ========================================================= */
 
-        let lastScroll = 0;
+function openCar(car) {
 
-        window.addEventListener(
-            "scroll",
-            () => {
+    modalImage.src = car.image;
 
-                const currentScroll =
-                    window.scrollY;
+    modalImage.alt =
+        `XENITH ${car.name}`;
 
-                if (currentScroll > 50) {
+    modalTitle.textContent =
+        car.name;
 
-                    header.style.background =
-                        "rgba(5, 5, 5, 0.96)";
+    modalClass.textContent =
+        `XENITH ${car.class}`;
 
-                } else {
+    modalStory.textContent =
+        car.story;
 
-                    header.style.background =
-                        "rgba(5, 5, 5, 0.82)";
+    modalVideo.href =
+        car.video;
 
-                }
 
-                lastScroll = currentScroll;
+    modal.classList.add("active");
 
-            },
-            { passive: true }
-        );
+    modal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+    document.body.classList.add(
+        "modal-open"
+    );
+
+}
+
+
+/* =========================================================
+   FECHAR MODAL
+   ========================================================= */
+
+function closeCar() {
+
+    modal.classList.remove("active");
+
+    modal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    document.body.classList.remove(
+        "modal-open"
+    );
+
+}
+
+
+/* =========================================================
+   BOTÃO FECHAR
+   ========================================================= */
+
+modalClose.addEventListener(
+    "click",
+    closeCar
+);
+
+
+/* =========================================================
+   CLICAR FORA
+   ========================================================= */
+
+modalBackdrop.addEventListener(
+    "click",
+    closeCar
+);
+
+
+/* =========================================================
+   ESC FECHA
+   ========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape" &&
+            modal.classList.contains("active")
+        ) {
+
+            closeCar();
+
+        }
 
     }
+);
 
 
-    /* =====================================================
-       04 — ANIMAÇÃO DOS ELEMENTOS
-       ===================================================== */
+/* =========================================================
+   FILTROS
+   ========================================================= */
 
-    const animatedElements =
-        document.querySelectorAll(
-            ".car-card, .competition-card, .edition, " +
-            ".download-grid article, .update, .lore"
-        );
+filters.forEach(filter => {
+
+    filter.addEventListener(
+        "click",
+        function() {
+
+            filters.forEach(button => {
+
+                button.classList.remove(
+                    "active"
+                );
+
+            });
 
 
-    if (
-        animatedElements.length > 0 &&
-        "IntersectionObserver" in window
-    ) {
-
-        const observer =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(entry => {
-
-                        if (entry.isIntersecting) {
-
-                            entry.target.style.opacity = "1";
-
-                            entry.target.style.transform =
-                                "translateY(0)";
-
-                            observer.unobserve(
-                                entry.target
-                            );
-
-                        }
-
-                    });
-
-                },
-                {
-                    threshold: 0.12
-                }
+            this.classList.add(
+                "active"
             );
 
 
-        animatedElements.forEach(element => {
+            const selected =
+                this.dataset.filter;
 
-            element.style.opacity = "0";
 
-            element.style.transform =
-                "translateY(25px)";
+            createCars(selected);
 
-            element.style.transition =
-                "opacity 0.6s ease, " +
-                "transform 0.6s ease";
-
-            observer.observe(element);
-
-        });
-
-    }
-
-
-    /* =====================================================
-       05 — EFEITO DE ENTRADA DO HERO
-       ===================================================== */
-
-    const heroContent =
-        document.querySelector(".hero-content");
-
-
-    if (heroContent) {
-
-        heroContent.style.opacity = "0";
-
-        heroContent.style.transform =
-            "translateY(25px)";
-
-        requestAnimationFrame(() => {
-
-            setTimeout(() => {
-
-                heroContent.style.opacity = "1";
-
-                heroContent.style.transform =
-                    "translateY(0)";
-
-                heroContent.style.transition =
-                    "opacity 1s ease, " +
-                    "transform 1s ease";
-
-            }, 150);
-
-        });
-
-    }
-
-
-    /* =====================================================
-       06 — CARDS DOS CARROS
-       ===================================================== */
-
-    const carCards =
-        document.querySelectorAll(
-            ".car-card"
-        );
-
-
-    carCards.forEach(card => {
-
-        card.addEventListener(
-            "mouseenter",
-            () => {
-
-                card.style.cursor =
-                    "pointer";
-
-            }
-        );
-
-
-        card.addEventListener(
-            "click",
-            event => {
-
-                const clickedLink =
-                    event.target.closest("a");
-
-                if (clickedLink) {
-                    return;
-                }
-
-                const link =
-                    card.querySelector("a");
-
-                if (link) {
-                    link.click();
-                }
-
-            }
-        );
-
-    });
-
-
-    /* =====================================================
-       07 — EFEITO DOS CARDS DE COMPETITION
-       ===================================================== */
-
-    const competitionCards =
-        document.querySelectorAll(
-            ".competition-card"
-        );
-
-
-    competitionCards.forEach(card => {
-
-        card.addEventListener(
-            "mousemove",
-            event => {
-
-                const rect =
-                    card.getBoundingClientRect();
-
-                const x =
-                    event.clientX - rect.left;
-
-                const y =
-                    event.clientY - rect.top;
-
-                const centerX =
-                    rect.width / 2;
-
-                const centerY =
-                    rect.height / 2;
-
-                const rotateX =
-                    ((y - centerY) /
-                    centerY) * -2;
-
-                const rotateY =
-                    ((x - centerX) /
-                    centerX) * 2;
-
-                card.style.transform =
-                    `perspective(700px)
-                     rotateX(${rotateX}deg)
-                     rotateY(${rotateY}deg)
-                     translateY(-7px)`;
-
-            }
-        );
-
-
-        card.addEventListener(
-            "mouseleave",
-            () => {
-
-                card.style.transform =
-                    "";
-
-            }
-        );
-
-    });
-
-
-    /* =====================================================
-       08 — LINKS PLACEHOLDER
-       ===================================================== */
-
-    const placeholderLinks =
-        document.querySelectorAll(
-            'a[href="#"]'
-        );
-
-
-    placeholderLinks.forEach(link => {
-
-        link.addEventListener(
-            "click",
-            event => {
-
-                event.preventDefault();
-
-                /*
-                 * Esses links estão temporariamente
-                 * sem destino.
-                 *
-                 * Quando colocarmos páginas individuais
-                 * dos carros, basta trocar o href no HTML.
-                 */
-
-            }
-        );
-
-    });
-
-
-    /* =====================================================
-       09 — BOTÃO VOLTAR AO TOPO
-       ===================================================== */
-
-    const createTopButton = () => {
-
-        const button =
-            document.createElement("button");
-
-        button.innerHTML = "↑";
-
-        button.setAttribute(
-            "aria-label",
-            "Voltar ao topo"
-        );
-
-        button.id =
-            "xenith-top-button";
-
-
-        Object.assign(
-            button.style,
-            {
-
-                position: "fixed",
-
-                bottom: "25px",
-
-                right: "25px",
-
-                width: "45px",
-
-                height: "45px",
-
-                border:
-                    "1px solid rgba(255,255,255,0.25)",
-
-                background:
-                    "rgba(5,5,5,0.9)",
-
-                color: "#fff",
-
-                fontSize: "20px",
-
-                cursor: "pointer",
-
-                zIndex: "900",
-
-                opacity: "0",
-
-                pointerEvents: "none",
-
-                transition:
-                    "opacity 0.3s ease"
-
-            }
-        );
-
-
-        document.body.appendChild(button);
-
-
-        window.addEventListener(
-            "scroll",
-            () => {
-
-                if (window.scrollY > 600) {
-
-                    button.style.opacity = "1";
-
-                    button.style.pointerEvents =
-                        "auto";
-
-                } else {
-
-                    button.style.opacity = "0";
-
-                    button.style.pointerEvents =
-                        "none";
-
-                }
-
-            },
-            { passive: true }
-        );
-
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
-
-            }
-        );
-
-    };
-
-
-    createTopButton();
-
-
-    /* =====================================================
-       10 — ATUALIZAÇÃO DO ANO
-       ===================================================== */
-
-    const copyright =
-        document.querySelector(
-            ".copyright"
-        );
-
-
-    if (copyright) {
-
-        copyright.textContent =
-            `© ${new Date().getFullYear()} XENITH. ALL RIGHTS RESERVED.`;
-
-    }
-
-
-    /* =====================================================
-       11 — DETECÇÃO DE REDUÇÃO DE MOVIMENTO
-       ===================================================== */
-
-    const prefersReducedMotion =
-        window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        );
-
-
-    if (prefersReducedMotion.matches) {
-
-        document.documentElement.style
-            .scrollBehavior = "auto";
-
-    }
-
-
-    /* =====================================================
-       12 — CONSOLE
-       ===================================================== */
-
-    console.log(
-        "%c XENITH AUTOMOTIVE DIVISION ",
-        "background:#050505;" +
-        "color:#fff;" +
-        "font-size:16px;" +
-        "font-weight:bold;" +
-        "padding:10px;"
-    );
-
-    console.log(
-        "%c System initialized successfully.",
-        "color:#888;"
+        }
     );
 
 });
+
+
+/* =========================================================
+   MENU MOBILE
+   ========================================================= */
+
+const menuButton =
+    document.getElementById("menuButton");
+
+const navigation =
+    document.querySelector(".navigation");
+
+
+menuButton.addEventListener(
+    "click",
+    function() {
+
+        navigation.classList.toggle(
+            "mobile-active"
+        );
+
+    }
+);
+
+
+/* =========================================================
+   FECHAR MENU AO CLICAR
+   ========================================================= */
+
+navigation.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener(
+        "click",
+        function() {
+
+            navigation.classList.remove(
+                "mobile-active"
+            );
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   IMPEDIR SCROLL COM MODAL ABERTO
+   ========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "ArrowDown" &&
+            modal.classList.contains("active")
+        ) {
+
+            event.preventDefault();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   INICIAR GARAGEM
+   ========================================================= */
+
+createCars("all");
